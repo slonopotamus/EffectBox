@@ -25,10 +25,12 @@ void UEffectBox::ReleaseSlateResources(const bool bReleaseChildren)
 	MyEffectBox.Reset();
 }
 
+#if WITH_EDITOR
 const FText UEffectBox::GetPaletteCategory()
 {
 	return NSLOCTEXT("UMG", "SpecialFX", "Special Effects");
 }
+#endif
 
 UMaterialInstanceDynamic* UEffectBox::GetEffectMaterial() const
 {
