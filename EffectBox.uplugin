@@ -1,0 +1,20 @@
+﻿{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "EffectBox",
+	"Description": "A widget that allows applying material effects to its contents",
+	"Category": "UI",
+	"CreatedBy": "Marat Radchenko",
+	"CreatedByURL": "https://github.com/slonopotamus",
+	"DocsURL": "https://github.com/slonopotamus/EffectBox",
+	"MarketplaceURL": "",
+	"CanContainContent": true,
+	"Modules": [
+		{
+			"Name": "EffectBox",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
