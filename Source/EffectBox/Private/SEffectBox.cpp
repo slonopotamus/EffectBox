@@ -5,7 +5,7 @@
 #include "Widgets/SWidgetUtils.h"
 #include "Widgets/Layout/SDPIScaler.h"
 
-static const TAutoConsoleVariable CVarEnableEffectBox(TEXT("Slate.EnableEffectBox"), true, TEXT("Controls whether EffectBox renders to render target"));
+static const TAutoConsoleVariable<bool> CVarEnableEffectBox(TEXT("Slate.EnableEffectBox"), true, TEXT("Controls whether EffectBox renders to render target"));
 
 SEffectBox::SEffectBox()
 {
@@ -32,7 +32,7 @@ void SEffectBox::Construct(const FArguments& Args)
 	if (CVarEnableEffectBox.GetValueOnGameThread())
 	{
 		WidgetRenderer = new FWidgetRenderer(true);
-		if (auto* RT = WidgetRenderer->CreateTargetFor(FVector2D::One(), TF_Bilinear, true))
+		if (auto* RT = WidgetRenderer->CreateTargetFor(FVector2D(1, 1), TF_Bilinear, true))
 		{
 			RenderTarget.Reset(RT);
 			SurfaceBrush.SetResourceObject(RT);
@@ -110,18 +110,18 @@ int32 SEffectBox::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeome
 	{
 		RenderTargetWidth = FMath::Min(RenderTargetWidth, CVarMaxWidth->GetInt());
 	}
-	RenderTargetWidth = FMath::Clamp(RenderTargetWidth, 1, GetMax2DTextureDimension());
+	RenderTargetWidth = FMath::Clamp<int32>(RenderTargetWidth, 1, GetMax2DTextureDimension());
 
 	static const auto* CVarMaxHeight = IConsoleManager::Get().FindConsoleVariable(TEXT("WidgetComponent.MaximumRenderTargetHeight"));
 	if (ensure(CVarMaxHeight))
 	{
 		RenderTargetHeight = FMath::Min(RenderTargetHeight, CVarMaxHeight->GetInt());
 	}
-	RenderTargetHeight = FMath::Clamp(RenderTargetHeight, 1, GetMax2DTextureDimension());
+	RenderTargetHeight = FMath::Clamp<int32>(RenderTargetHeight, 1, GetMax2DTextureDimension());
 
 	RenderTarget->ResizeTarget(RenderTargetWidth, RenderTargetHeight);
 
-	SurfaceBrush.ImageSize = FVector2f(RenderTargetWidth, RenderTargetHeight);
+	SurfaceBrush.ImageSize = FVector2D(RenderTargetWidth, RenderTargetHeight);
 
 	if (VirtualWindow)
 	{
@@ -174,5 +174,5 @@ int32 SEffectBox::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeome
 
 bool SEffectBox::ComputeVolatility() const
 {
-	return RenderTarget != nullptr;
+	return RenderTarget.IsValid();
 }

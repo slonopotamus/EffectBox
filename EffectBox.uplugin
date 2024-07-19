@@ -9,7 +9,7 @@
 	"CreatedByURL": "https://github.com/slonopotamus",
 	"DocsURL": "https://github.com/slonopotamus/EffectBox",
 	"MarketplaceURL": "",
-	"CanContainContent": true,
+	"CanContainContent": false,
 	"Modules": [
 		{
 			"Name": "EffectBox",

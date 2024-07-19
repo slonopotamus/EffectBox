@@ -1,5 +1,9 @@
 #pragma once
 
+#if ENGINE_MAJOR_VERSION < 5
+#include "StrongObjectPtr.h"
+#endif
+
 #include "Widgets/SCompoundWidget.h"
 
 class FWidgetRenderer;

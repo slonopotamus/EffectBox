@@ -29,7 +29,7 @@ class EFFECTBOX_API UEffectBox : public UContentWidget
 	 * you won't see the expected color.
 	 */
 	UPROPERTY(EditAnywhere, Category = "Effect")
-	TObjectPtr<UMaterialInterface> EffectMaterial;
+	UMaterialInterface* EffectMaterial = nullptr;
 	
 	virtual void OnSlotAdded(UPanelSlot* InSlot) override;
 	virtual void OnSlotRemoved(UPanelSlot* InSlot) override;

@@ -4,7 +4,7 @@
 
 UEffectBox::UEffectBox()
 {
-	SetVisibilityInternal(ESlateVisibility::HitTestInvisible);
+	Visibility = ESlateVisibility::HitTestInvisible;
 }
 
 TSharedRef<SWidget> UEffectBox::RebuildWidget()
