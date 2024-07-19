@@ -144,6 +144,11 @@ int32 SEffectBox::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeome
 		Context.PaintArgs = &PaintArgs;
 		Context.IncomingLayerId = LayerId;
 
+#if ENGINE_MAJOR_VERSION < 5 || (ENGINE_MAJOR_VERSION == 5 && ENGINE_MINOR_VERSION < 4)
+		VirtualWindow->ProcessWindowInvalidation();
+		VirtualWindow->SlatePrepass(Context.LayoutScaleMultiplier);
+#endif
+
 		auto WindowRef = VirtualWindow.ToSharedRef();
 
 		static const auto* CVarDeferRendering = IConsoleManager::Get().FindConsoleVariable(TEXT("Slate.DeferRetainedRenderingRenderThread"));
