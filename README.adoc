@@ -2,6 +2,8 @@
 
 EffectBox is a widget for Unreal Engine that allows applying custom materials.
 
+Supports Unreal Engine 4.27 and newer.
+
 [[use-cases]]
 == Use cases
 
