@@ -1,7 +1,13 @@
 ﻿= Effect Box
 
 EffectBox is a widget for Unreal Engine that allows applying custom materials.
-For example, to make curved HUD, implement UI shake or apply other post-effects.
+
+[[use-cases]]
+== Use cases
+
+* Curved HUD
+* HUD shake/displacement during movement or taking damage
+* Any other UI post-effects
 
 [[usage]]
 == How to use
