@@ -24,7 +24,7 @@ image:https://github.com/user-attachments/assets/f11dd6cc-a20c-4894-b3f2-c9d6f17
 [[retainerbox]]
 == What's wrong with RetainerBox?
 
-* RetainerBox doesn't play well with Slate Global Invalidation.
+* RetainerBox doesn't play well with https://dev.epicgames.com/documentation/en-us/unreal-engine/invalidation-in-slate-and-umg-for-unreal-engine[Slate Global Invalidation].
 It invalidates too much aggressively, resulting in bad performance.
 With complex UIs, EffectBox is able to save up to multiple milliseconds compared to RetainerBox.
 * RetainerBox had long-standing bugs (https://issues.unrealengine.com/issue/UE-107863[UE-107863], https://issues.unrealengine.com/issue/UE-114934[UE-114934], https://issues.unrealengine.com/issue/UE-203471[UE-203471] and so on) that only got fixed in Unreal Engine 5.4.
