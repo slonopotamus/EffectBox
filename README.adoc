@@ -37,7 +37,7 @@ It invalidates too much aggressively, resulting in bad performance.
 At least as of UE-5.4, RetainerBox https://github.com/EpicGames/UnrealEngine/blob/5.4.3-release/Engine/Source/Runtime/UMG/Private/Slate/SRetainerWidget.cpp#L723-L732[fully disables FastPath update].
 With complex UIs, EffectBox is able to save up to multiple milliseconds compared to RetainerBox.
 * RetainerBox had long-standing bugs (https://issues.unrealengine.com/issue/UE-107863[UE-107863], https://issues.unrealengine.com/issue/UE-114934[UE-114934], https://issues.unrealengine.com/issue/UE-203471[UE-203471] and so on) that only got fixed in Unreal Engine 5.4.
-* RetainerBox is _very_ complex.
+* RetainerBox is _complex_.
 Its primary goal is to reduce UI redraw rate, which it implements by caching UI in a render target.
-Actually, that could even be achieved without introducing a render target, so it is questionable whether RetainerBox solves its task _effectively_.
-When one uses RetainerBox to draw each frame just to apply visual effects, it is just an ineffective overkill.
+Actually, that could even be achieved without introducing a render target, so it is questionable whether RetainerBox solves even its main task _effectively_.
+When one uses RetainerBox to draw each frame just to apply visual effects, it is an ineffective overkill.
