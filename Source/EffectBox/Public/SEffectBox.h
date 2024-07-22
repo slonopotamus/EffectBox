@@ -26,13 +26,13 @@ class EFFECTBOX_API SEffectBox final : public SCompoundWidget
 	bool bIsDesignTime = false;
 
 	virtual int32 OnPaint(
-		const FPaintArgs& Args,
-		const FGeometry& AllottedGeometry,
-		const FSlateRect& MyCullingRect,
-		FSlateWindowElementList& OutDrawElements,
-		int32 LayerId,
-		const FWidgetStyle& InWidgetStyle,
-		bool bParentEnabled) const override;
+	    const FPaintArgs& Args,
+	    const FGeometry& AllottedGeometry,
+	    const FSlateRect& MyCullingRect,
+	    FSlateWindowElementList& OutDrawElements,
+	    int32 LayerId,
+	    const FWidgetStyle& InWidgetStyle,
+	    bool bParentEnabled) const override;
 
 	virtual bool ComputeVolatility() const override;
 

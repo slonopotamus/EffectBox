@@ -30,7 +30,7 @@ class EFFECTBOX_API UEffectBox : public UContentWidget
 	 */
 	UPROPERTY(EditAnywhere, Category = "Effect")
 	UMaterialInterface* EffectMaterial = nullptr;
-	
+
 	virtual void OnSlotAdded(UPanelSlot* InSlot) override;
 	virtual void OnSlotRemoved(UPanelSlot* InSlot) override;
 
