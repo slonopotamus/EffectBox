@@ -2,8 +2,8 @@
 
 #include "Engine/TextureRenderTarget2D.h"
 #include "Slate/WidgetRenderer.h"
-#include "Widgets/SWidgetUtils.h"
 #include "Widgets/Layout/SDPIScaler.h"
+#include "Widgets/SWidgetUtils.h"
 
 static const TAutoConsoleVariable<bool> CVarEnableEffectBox(TEXT("Slate.EnableEffectBox"), true, TEXT("Controls whether EffectBox renders to render target"));
 
@@ -80,7 +80,7 @@ void SEffectBox::SetEffectMaterial(UMaterialInterface* EffectMaterial, const FNa
 	}
 
 	SurfaceBrush.SetResourceObject(DynamicEffect.Get());
-	
+
 	if (DynamicEffect)
 	{
 		DynamicEffect->SetTextureParameterValue(TextureParameter, RenderTarget.Get());
