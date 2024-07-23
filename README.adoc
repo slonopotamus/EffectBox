@@ -1,6 +1,6 @@
 ﻿= Effect Box
 
-EffectBox is a widget for Unreal Engine that allows applying custom materials.
+EffectBox is a highly-performant widget for Unreal Engine that allows applying custom materials.
 
 Supports Unreal Engine 4.27 and newer.
 
@@ -19,6 +19,8 @@ Supports Unreal Engine 4.27 and newer.
 . Specify your material in "Effect Material" widget field
 . Specify texture parameter name in "Texture Parameter" widget field
 . You're done!
+
+NOTE: If you used RetainerBox for the same purpose before, you can just replace it with EffectBox.
 
 [[example]]
 == Example
