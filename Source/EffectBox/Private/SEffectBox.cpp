@@ -32,7 +32,7 @@ void SEffectBox::Construct(const FArguments& Args)
 	if (CVarEnableEffectBox.GetValueOnGameThread())
 	{
 		WidgetRenderer = new FWidgetRenderer(true);
-		if (auto* RT = WidgetRenderer->CreateTargetFor(FVector2D(1, 1), TF_Bilinear, true))
+		if (auto* RT = WidgetRenderer->CreateTargetFor(FVector2D::UnitVector, TF_Bilinear, true))
 		{
 			RenderTarget.Reset(RT);
 			SurfaceBrush.SetResourceObject(RT);
