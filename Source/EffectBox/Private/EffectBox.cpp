@@ -4,7 +4,7 @@
 
 UEffectBox::UEffectBox()
 {
-#if ENGINE_MAJOR_VERSION < 5 || ENGINE_MINOR_VERSION < 1
+#if ENGINE_MAJOR_VERSION < 5 || ENGINE_MAJOR_VERSION == 5 && ENGINE_MINOR_VERSION < 1
 	Visibility = ESlateVisibility::HitTestInvisible;
 #else
 	SetVisibilityInternal(ESlateVisibility::HitTestInvisible);
@@ -14,10 +14,10 @@ UEffectBox::UEffectBox()
 TSharedRef<SWidget> UEffectBox::RebuildWidget()
 {
 	MyEffectBox = SNew(SEffectBox)
-	                  .IsDesignTime(IsDesignTime())
-	                      [GetContentSlot() && GetContentSlot()->Content
-	                           ? GetContentSlot()->Content->TakeWidget()
-	                           : SNullWidget::NullWidget];
+			  .IsDesignTime(IsDesignTime())
+				  [GetContentSlot() && GetContentSlot()->Content
+					   ? GetContentSlot()->Content->TakeWidget()
+					   : SNullWidget::NullWidget];
 
 	return MyEffectBox.ToSharedRef();
 }
