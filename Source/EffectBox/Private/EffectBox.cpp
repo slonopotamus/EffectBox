@@ -4,7 +4,11 @@
 
 UEffectBox::UEffectBox()
 {
+#if ENGINE_MAJOR_VERSION < 5 || ENGINE_MINOR_VERSION < 1
 	Visibility = ESlateVisibility::HitTestInvisible;
+#else
+	SetVisibilityInternal(ESlateVisibility::HitTestInvisible);
+#endif
 }
 
 TSharedRef<SWidget> UEffectBox::RebuildWidget()
