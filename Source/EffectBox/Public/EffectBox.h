@@ -43,6 +43,6 @@ class EFFECTBOX_API UEffectBox : public UContentWidget
 #endif
 
 public:
-	UFUNCTION(Blueprintable)
+	UFUNCTION(BlueprintCallable)
 	UMaterialInstanceDynamic* GetEffectMaterial() const;
 };
