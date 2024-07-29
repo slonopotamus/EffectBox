@@ -31,6 +31,9 @@ class EFFECTBOX_API UEffectBox : public UContentWidget
 	UPROPERTY(EditAnywhere, Category = "Effect")
 	UMaterialInterface* EffectMaterial = nullptr;
 
+	UPROPERTY(EditAnywhere, Category = "Effect")
+	bool bAllowFastUpdate = true;
+
 	virtual void OnSlotAdded(UPanelSlot* InSlot) override;
 	virtual void OnSlotRemoved(UPanelSlot* InSlot) override;
 

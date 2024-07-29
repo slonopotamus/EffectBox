@@ -15,6 +15,7 @@ TSharedRef<SWidget> UEffectBox::RebuildWidget()
 {
 	MyEffectBox = SNew(SEffectBox)
 	                  .IsDesignTime(IsDesignTime())
+	                  .AllowFastUpdate(bAllowFastUpdate)
 	                      [GetContentSlot() && GetContentSlot()->Content
 	                           ? GetContentSlot()->Content->TakeWidget()
 	                           : SNullWidget::NullWidget];

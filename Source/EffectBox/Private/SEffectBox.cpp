@@ -42,7 +42,7 @@ void SEffectBox::Construct(const FArguments& Args)
 		{
 			DPIScaler = SNew(SDPIScaler);
 			VirtualWindow = SNew(SVirtualWindow).Visibility(EVisibility::HitTestInvisible);
-			VirtualWindow->SetAllowFastUpdate(true);
+			VirtualWindow->SetAllowFastUpdate(Args._AllowFastUpdate);
 			VirtualWindow->SetContent(DPIScaler.ToSharedRef());
 			FSlateApplication::Get().RegisterVirtualWindow(VirtualWindow.ToSharedRef());
 		}

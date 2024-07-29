@@ -41,13 +41,15 @@ class EFFECTBOX_API SEffectBox final : public SCompoundWidget
 public:
 	SLATE_BEGIN_ARGS(SEffectBox)
 	{
-		_Visibility = EVisibility::Visible;
+		_Visibility = EVisibility::HitTestInvisible;
+		_AllowFastUpdate = true;
 		_IsDesignTime = false;
 		_TextureParameter = NAME_None;
 		_EffectMaterial = nullptr;
 	}
 	SLATE_DEFAULT_SLOT(FArguments, Content)
 	SLATE_ARGUMENT(bool, IsDesignTime)
+	SLATE_ARGUMENT(bool, AllowFastUpdate)
 	SLATE_ARGUMENT(FName, TextureParameter)
 	SLATE_ARGUMENT(UMaterialInterface*, EffectMaterial)
 	SLATE_END_ARGS()
