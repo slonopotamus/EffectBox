@@ -64,4 +64,6 @@ public:
 	void SetEffectMaterial(UMaterialInterface* EffectMaterial, const FName& TextureParameter);
 
 	UMaterialInstanceDynamic* GetEffectMaterial() const;
+
+	void SetAllowFastUpdate(bool bAllowFastUpdate);
 };

@@ -13,12 +13,18 @@ UEffectBox::UEffectBox()
 
 TSharedRef<SWidget> UEffectBox::RebuildWidget()
 {
+	auto Content = SNullWidget::NullWidget;
+	if (const auto* ContentSlot = GetContentSlot())
+	{
+		if (ContentSlot->Content)
+		{
+			Content = ContentSlot->Content->TakeWidget();
+		}
+	}
+
 	MyEffectBox = SNew(SEffectBox)
 	                  .IsDesignTime(IsDesignTime())
-	                  .AllowFastUpdate(bAllowFastUpdate)
-	                      [GetContentSlot() && GetContentSlot()->Content
-	                           ? GetContentSlot()->Content->TakeWidget()
-	                           : SNullWidget::NullWidget];
+	                      [Content];
 
 	return MyEffectBox.ToSharedRef();
 }
@@ -56,6 +62,7 @@ void UEffectBox::SynchronizeProperties()
 		return;
 	}
 
+	MyEffectBox->SetAllowFastUpdate(bAllowFastUpdate);
 	MyEffectBox->SetEffectMaterial(EffectMaterial, TextureParameter);
 }
 

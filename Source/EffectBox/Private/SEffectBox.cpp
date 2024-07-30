@@ -92,6 +92,14 @@ UMaterialInstanceDynamic* SEffectBox::GetEffectMaterial() const
 	return DynamicEffect.Get();
 }
 
+void SEffectBox::SetAllowFastUpdate(bool bAllowFastUpdate)
+{
+	if (VirtualWindow)
+	{
+		VirtualWindow->SetAllowFastUpdate(bAllowFastUpdate);
+	}
+}
+
 int32 SEffectBox::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeometry, const FSlateRect& MyCullingRect, FSlateWindowElementList& OutDrawElements, int32 LayerId, const FWidgetStyle& InWidgetStyle, bool bParentEnabled) const
 {
 	SCOPE_CYCLE_SWIDGET(this);
